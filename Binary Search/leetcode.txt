@@ -1,0 +1,17 @@
+Problem: 2529
+use two loop. First count 0 as positive then in second loop count 0 as negative.
+
+problem: 153
+main logic in rotating_list.py file. second submission applies another improved logic.
+if list[mid] > list[hi] then solution lies in right half except mid. so lo = mid + 1
+else solution lies in left half with mid. so hi = mid
+
+problem: 33
+* if mid == target then return its index. 
+* Then check if mid element is greater than or equal to low element. If true then means left side is properly sorted.(for ex - [3,4,5,6,1]). Now if target is greater than the mid it means target must be present in the right side. For less, it can be on both sides. If it is less than low it means the target is in right side otherwise left.
+* for else, [5,6,1,2,3] use this and think the opposite.
+
+
+problem: 74
+seems easy by looping through each row and then apply binary search in it. There is optimize way. We don't need to search every row. If target is exist in an row then that row's: 1st element <= target and last element >= target.
+
