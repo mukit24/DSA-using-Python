@@ -6,8 +6,8 @@
 class TreeNode:
     def __init__(self, key):
         self.key = key
-        self.left = 0
-        self.right = 0
+        self.left = None
+        self.right = None
     
     def __str__(self):
         return f'Node key is {self.key}'
@@ -19,24 +19,41 @@ node2 = TreeNode(5)
 node0.left = node1
 node0.right = node2
 
-# print(node0)
+# print(node0.left.key)
 
 # (left, key, right)
-# ((1,3,0),2,((0,3,4),5,(6,7,8))) construct this tree
+# ((1,3,None),2,((None,3,4),5,(6,7,8))) construct this tree
 
 def parseTuple(data):
-    print(data)
+    # print(data)
     if isinstance(data, tuple) and len(data) == 3:
-        
         node = TreeNode(data[1])
-        print('node', node)
         node.left = parseTuple(data[0])
-        print('left', node.left.key)
         node.right = parseTuple(data[2])
-    elif data == 0:
-        node = 0
+    elif data == None:
+        node = None
     else:
         node = TreeNode(data)
+    # print('node--',node)
     return node
 
-parseTuple(((1,3,None),2,((None,3,4),5,(6,7,8))))
+myNode = parseTuple(((1,3,None),2,((None,3,4),5,(6,7,8))))
+
+# print(myNode.right.left)
+
+def tree_to_tuple(data):
+    print(data)
+    listTree = []
+    if isinstance(data, TreeNode) and (data.left or data.right):
+        listTree.insert(1, data.key)
+        listTree.insert(0, tree_to_tuple(data.left))
+        listTree.insert(2, tree_to_tuple(data.right))
+        listTree = tuple(listTree)
+    elif data == None:
+        listTree = None
+    else:
+        listTree = data.key
+    return listTree
+
+print(tree_to_tuple(myNode))
+
