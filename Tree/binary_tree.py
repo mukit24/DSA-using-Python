@@ -42,7 +42,7 @@ myNode = parseTuple(((1,3,None),2,((None,3,4),5,(6,7,8))))
 # print(myNode.right.left)
 
 def tree_to_tuple(data):
-    print(data)
+    # print(data)
     listTree = []
     if isinstance(data, TreeNode) and (data.left or data.right):
         listTree.insert(1, data.key)
@@ -55,5 +55,22 @@ def tree_to_tuple(data):
         listTree = data.key
     return listTree
 
-print(tree_to_tuple(myNode))
+# print(tree_to_tuple(myNode))
 
+# height of a binary tree
+def height(node):
+    if not node:
+        return 0
+    else:
+        return 1 + max(height(node.left), height(node.right))
+
+print(height(myNode))
+
+# size of a binary tree
+def treeSize(node):
+    if not node:
+        return 0
+    else:
+        return 1 + treeSize(node.left)+treeSize(node.right)
+
+print(treeSize(myNode))
