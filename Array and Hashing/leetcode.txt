@@ -1,0 +1,13 @@
+problem: 238
+* can be solved by brut force using 0(n^2)
+* another way is, get the total product value. Then just lopp through a divide total product value by current value.
+* optimize solution is using prefix and suffix:
+[1,2,3,4]
+suppose current value is 2. so the prefix is 1 and suffix is 3*4=12
+so, ans in that position is prefix * suffix.
+
+problem: 128
+* can be solved by sorting. In sorted a list, traverse and check current = current -1 and count.
+* convert to set. Traverse and check for is it the starting point of a sequence(if element-1 not exist then it is starting point). If starting point found then apply while loop for element+1 and count. max count is the answer.
+* another way is - convert to set. Traverse and check element+1 or element-1 is exist or not. if exist then apply while loop accordingly and get the max count.
+*** check for complexity in last two approach. It is O(n). bcz inner while execute each element just once for all outer iteration.
