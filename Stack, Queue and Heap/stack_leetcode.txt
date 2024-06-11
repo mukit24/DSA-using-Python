@@ -1,0 +1,11 @@
+Problem: 20
+* make dictionary for corresponding parenthesis. loop through input and check if closing paren present in the key. If present then check is its opening paren present in the stack top(stack[-1] == paren[item]) ,if true then pop else return False. Append item if opening paren is found.
+* At last check if stack is empty or not.
+* Additional improvement: 1st check if input contains odd number of elements. For odd number it is always False.
+
+Problem: 853
+* what is the time of each car to reach target? for position 10, speed 2 and target 12 , it is 1 hr. If another car time is 1 hr or less to reach target and it is behind(position is less) that car, its mean that two car are fleet(in the same position or can be overtaken each other).
+* So we need to sort on the basis of position. Let's sort in decresing order.
+* So, test_case1 will be [(10, 2), (8, 4), (5,1)...(position, speed)] and time can be calculated as [1,1,7,3,...]
+* let loop through it and check present time is >= next time(1st point logic). If not then ans += 1.
+* Bonus: if ask the position of one car in each flet then a stack can be handful  in the place of ans counter. Though present problem can be solve by stack by appending instead of ans += 1 and then count the len of stack.
