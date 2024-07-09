@@ -1,0 +1,5 @@
+problem: 2461
+* think of Maximum Sum Subarray of Size k problem. Only difference is that window must contain unique elements.
+* maintain a hash set for window. Insert element in window along with calculate the window sum if it is not present in the current window. 
+* if duplicate found we need to shrink the window. So remove elements from window until duplicate element is removed and adjust the sum accordingly. It means windows will start from right after that duplicate element from the test case array. Then add that current element in window.
+* when window size is equal to 'k' then calculate the ans by finding max sum. then remove windows 1st element and reduce the sum accordingly.
