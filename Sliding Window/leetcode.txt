@@ -3,3 +3,9 @@ problem: 2461
 * maintain a hash set for window. Insert element in window along with calculate the window sum if it is not present in the current window. 
 * if duplicate found we need to shrink the window. So remove elements from window until duplicate element is removed and adjust the sum accordingly. It means windows will start from right after that duplicate element from the test case array. Then add that current element in window.
 * when window size is equal to 'k' then calculate the ans by finding max sum. then remove windows 1st element and reduce the sum accordingly.
+
+problem: 567
+* remember anagram? permutation is just like anagrams. so we can bruthforce in sliding window. use sliding window in s2 with window size of len(s1). then check each character of s1 and window. Its O(m*n). We can do another way by sorting the window and s1 then check. So its O(mlogm * n). Now Let's move to O(n) solution.
+*  Character in the both string is limited to a-z. So we can use a fixed size(26) array or a hashmap to count each frequency. For array we need ascii value, for hashmap we can simply count freq in key-val pair. When both s1 freq and window freq is equal then we found the permutations.
+* A variation can be applied bby using only one fixed array or hashmap. We need to adjust the s1 freq in every window. when the s1 freq is all zero then its true.
+* One important note, using fixed size array is more performance friendly then hashmap. while both are O(1) in lookup(for array its index lookup) but the hashmap constant factors are overhead because its dynammic nature, hashing, mermory allocation etc. For example arr[1] is efficent more than hashmaplook because hashmap applies hash function in lookups. 
