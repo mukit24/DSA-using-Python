@@ -1,0 +1,11 @@
+Problem: 21
+* each iteration check one from both list. if list1.val < list2.val then ansList.next = list1 and list1 = list1.next . vice verse.
+* for deifferent size one will not be traversed full. Just join that remaining portion with ansList.
+* complexity O(size(list1)+size(list2)) or O(N) here N is total number of nodes across both list.
+
+Problem: 23
+* now we merge k sorted list. Think of two sorted list problem. We can do a bruth force. Loop through all lists and merge it with the currently merged list using two sorted list problem solution. At the end we find the answer. time complexity will be O(kN), here k is the number of list and N is the total number of nodes across all lists.
+
+* we can do better by minimizing the k iteration. How? think of merge sort. We can merge by pair then merge these pair again pair wise using that two sorted list problem. at last iteration we reached our answer. Suppose we have 8 lists. 1st iteration we got 4 list. 2nd iteration we got 2 lists and in 3rd we got one. So total 3 iteration. So k is minimized to logk. So the overall time complexity will be O(Nlogk).
+
+* There is a heap solution. Check heap section.
