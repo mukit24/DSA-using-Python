@@ -14,3 +14,12 @@ Problem: 739
 * traverse the array. If present element is greater than previouis element then ans is 1 (present index - previous index). But what will happen for else? we can use stack data structure for this.
 * lets initialize ans array with 0 to handle the case when a day can be 0.
 * now traverse and append index to the stack. Before appending check if the top of stack is less than the current value. If true then pop it and calculates its result and place it in the ans array. Do this untill stack is empty. Because stack can contain one or more days that are less than the current value.  
+
+
+
+### heap
+problem: 621
+* we need to handle the most frequent task properly for minimizing the time. 
+* use maxheap to store the most frequent tasks.
+* but we need to consider the cooling time n. Suppose 'A' is current task then its frequency became 2. But we can't put 'A' in the next slot. We need to wait current_time+n time. Store this info in an queue.
+* Process tasks by decrementing their counts and reinserting them after the cooldown.
