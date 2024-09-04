@@ -50,3 +50,41 @@ def fibo(num):
     return fibo(num-1)+fibo(num-2)
 
 print(fibo(6))
+
+# merge sort
+
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        
+        left = arr[:mid]
+        right = arr[mid:]
+
+        merge_sort(left)
+        merge_sort(right)
+        
+
+        i=j=k=0
+        # print(left,right,k)
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                arr[k] = left[i]
+                i += 1
+            else:
+                arr[k] = right[j]
+                j += 1
+            k += 1
+
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+        
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
+
+nums = [5,3,7,2,-1,10,7]
+merge_sort(nums)
+print(nums)
