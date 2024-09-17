@@ -1,0 +1,138 @@
+# graph (list of edges)
+# assume directed graph
+# for undirected add same edge bt node vice verse
+
+class GraphListOfEdges:
+    def __init__(self, number_of_nodes):
+        self.total_nodes = number_of_nodes
+        self.list_of_edges = []
+
+    def add_edge(self, node1, node2, weight=1):
+        self.list_of_edges.append([node1, node2, weight])
+    
+    def print_edges(self):
+        total_edge = len(self.list_of_edges)
+
+        for i in range(total_edge):
+            print(f'edge {i+1}: {self.list_of_edges[i]}')
+
+# graph_list_of_edges = GraphListOfEdges(5)
+
+# graph_list_of_edges.add_edge(0, 0, 25)
+# graph_list_of_edges.add_edge(0, 1, 5)
+# graph_list_of_edges.add_edge(0, 2, 3)
+# graph_list_of_edges.add_edge(1, 3, 1)
+# graph_list_of_edges.add_edge(1, 4, 15)
+# graph_list_of_edges.add_edge(4, 2, 7)
+# graph_list_of_edges.add_edge(4, 3, 11)
+
+# graph_list_of_edges.print_edges()
+
+# adjacency matrix implementation
+
+class GraphMatrix:
+    def __init__(self, node_count):
+        self.total_nodes = node_count
+
+        # create 2D array with 0 weights
+        self.adj_matrix = [[0 for _ in range(self.total_nodes)] for _ in range(self.total_nodes)]
+
+    def add_edge(self, node1, node2, weight):
+        self.adj_matrix[node1][node2] = weight
+
+    def print_adj_matrix(self):
+        for row in self.adj_matrix:
+            print(row)
+
+# graph_adj = GraphMatrix(5)
+
+# graph_adj.add_edge(0, 0, 25)
+# graph_adj.add_edge(0, 1, 5)
+# graph_adj.add_edge(0, 2, 3)
+# graph_adj.add_edge(1, 3, 1)
+# graph_adj.add_edge(1, 4, 15)
+# graph_adj.add_edge(4, 2, 7)
+# graph_adj.add_edge(4, 3, 11)
+
+# graph_adj.print_adj_matrix()
+
+
+# BFS(search Node)
+from collections import deque
+
+class Graph:
+    def __init__(self):
+        self.graph = {}
+
+    def add_edge(self,node1, node2):
+        if node1 not in self.graph:
+            self.graph[node1] = []
+        self.graph[node1].append(node2)
+    
+    def print_graph(self):
+        print(self.graph)
+
+    def bfs_search(self, start, target):
+        visited = set()
+        queue = deque([start])
+        parent = {start: None}
+        visited.add(start)
+
+        while queue:
+            node = queue.popleft()
+            if target == node:
+                path = []
+                while node is not None:
+                    path.append(node)
+                    node = parent[node]
+            
+                return path[::-1]
+            
+            for neighbour in self.graph.get(node, []):
+                if neighbour not in visited:
+                    queue.append(neighbour)
+                    visited.add(neighbour)
+                    parent[neighbour] = node
+
+    def bfs_traversal(self, start):
+        visited = set()
+        queue = deque()
+
+        queue.append(start)
+        visited.add(start)
+
+        while queue:
+            node = queue.popleft()
+            print(node, end=" ")
+
+            for neighbor in self.graph.get(node, []):
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+    
+    def dfs(self, node, visited):
+        visited.add(node)
+        print(node, end=" ")
+
+        for neighbor in self.graph.get(node, []):
+            if neighbor not in visited:
+                self.dfs(neighbor, visited)
+    
+    def dfs_start(self, start):
+        visited = set()
+        self.dfs(start, visited)
+
+
+g = Graph()
+g.add_edge(0, 1)
+g.add_edge(0, 2)
+g.add_edge(1, 2)
+g.add_edge(2, 0)
+g.add_edge(2, 3)
+g.add_edge(3, 3)
+
+# print(g.bfs_search(0,3))
+# g.bfs_traversal(1)
+g.dfs_start(0)
+
+# g.print_graph()
