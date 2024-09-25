@@ -123,16 +123,65 @@ class Graph:
         self.dfs(start, visited)
 
 
-g = Graph()
-g.add_edge(0, 1)
-g.add_edge(0, 2)
-g.add_edge(1, 2)
-g.add_edge(2, 0)
-g.add_edge(2, 3)
-g.add_edge(3, 3)
+# g = Graph()
+# g.add_edge(0, 1)
+# g.add_edge(0, 2)
+# g.add_edge(1, 2)
+# g.add_edge(2, 0)
+# g.add_edge(2, 3)
+# g.add_edge(3, 3)
 
 # print(g.bfs_search(0,3))
 # g.bfs_traversal(1)
-g.dfs_start(0)
+# g.dfs_start(0)
 
 # g.print_graph()
+
+
+# Topological Sorting
+#   A → B → C
+#   ↓    ↑
+#   D → E
+# valid order are: A, D, E, B, C
+# valid order will be produced if there is not any cycle.
+
+# Kahns Algorithm(BFS Based)
+# key points: It uses indegree of nodes(num of incoming edges). Process node with 0 indegree. Then edges coming from this node are removed and decrement the indegree's of these neighbor's node. Continue these process.
+
+# code in the respect of course schedule 2 problem.
+
+def topo_bfs(num_courses, prereq):
+    adj_list = {i:[] for i in range(num_courses)}
+    in_degree = [0]*num_courses
+
+    for crs, pre in prereq:
+        adj_list[pre].append(crs) # [0,1] means you need to take course 1 first  to take 0. So, 1--->0
+        in_degree[crs] += 1
+
+    q = deque() # zero indegree queue
+    for index, val in enumerate(in_degree):
+        if val == 0:
+            q.append(index)
+    
+    topo_order = []
+
+    while q:
+        node = q.popleft()
+        topo_order.append(node)
+
+        for neigh in adj_list[node]:
+            in_degree[neigh] -= 1
+            if in_degree[neigh] == 0:
+                q.append(neigh)
+    
+    if len(topo_order) == num_courses:
+        return topo_order
+    else:
+        return [] # Cycle found
+    
+numCourses = 6
+prerequisites = [[5, 2], [5, 0], [4, 0], [4, 1], [2, 3], [3, 1]]
+print("Topological Sort (Kahn's Algorithm):", topo_bfs(numCourses, prerequisites))
+
+
+
