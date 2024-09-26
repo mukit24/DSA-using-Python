@@ -184,4 +184,40 @@ prerequisites = [[5, 2], [5, 0], [4, 0], [4, 1], [2, 3], [3, 1]]
 print("Topological Sort (Kahn's Algorithm):", topo_bfs(numCourses, prerequisites))
 
 
+# Disktra shortest path 
+from collections import defaultdict, deque
+import heapq
+
+def dijkstra(edges, source, n):
+    adj_list = {i: [] for i in range(n)}
+    for u,v,wt in edges:
+        adj_list[u].append((v,wt))
+   
+    #initialize all distance as infinity
+    distances = {i:float('inf') for i in range(len(adj_list))}
+    #source distance is 0
+    distances[source] = 0
+    heap = [(0, source)]
+
+    while heap:
+        current_distance, current_node = heapq.heappop(heap)
+
+        if current_distance > distances[current_node]:
+            continue
+
+        #explore neighbor
+
+        for neighbor, weight in adj_list[current_node]:
+            distance = weight + current_distance
+
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(heap, (distance, neighbor))
+
+    return distances
+
+print(dijkstra([[0,1,4], [0,2,1], [1,3,1], [2,1,2], [2,3,5]], 0, 4))
+    
+
+
 
