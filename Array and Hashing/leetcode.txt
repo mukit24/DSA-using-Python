@@ -1,3 +1,16 @@
+problem: 217
+* Brute Force [O(n^2) time and O(1) space]: Compare every pair of elements.
+* Sorting [O(nlogn) time]: Sort the array, and then check consecutive elements for equality. Space complexity will be O(1) if using heap sort or inplace quick sort.
+* HashSet [O(n)]: As you iterate through the array, add each element to a set. If an element is already in the set, return true.
+
+problem: 242
+* Sorting [O(nlogn) time and O(n) space]: If anagaram then sorting of both string will be same.
+* HashMap [O(n) time & O(1) space bcz fixed 26 char]: HashMap to count character in 1st string. Then loop through 2nd string and check if not exist or its frequency is 0 then return False. Otherwise just decrement the count. If anagram then all values of hashMap will be zero. Alternating approach will be using a character array or built in Counter class.
+
+problem: 1
+* Brute Force: Check all pairs of numbers to see if they sum to the target.
+* HashMap [O(n)]: Iterate and add in hashMap (key: num, value: index). And check (target - num) present in the hashMap. If found then return their indices.
+
 problem: 238
 * can be solved by brut force using 0(n^2)
 * another way is, get the total product value. Then just lopp through a divide total product value by current value.
