@@ -36,11 +36,14 @@ problem: 128
 
 ## Using Prefix Sum Algorithm ##
 
+problem: 303
+* Brute Force: For each query, iterate through the range [𝑖,𝑗] and sum the elements. Problem is, for multiple queries it is inefficient because each needs O(n).
+* Prefix Sum [O(1) time for each query]: Precompute the prefix sum for each position. For range[i,j], ans will be prefixSum[j] - prefixSum[i-1] (handle i overflow).
+
 problem: 238
-* can be solved by brut force using 0(n^2)
-* another way is, get the total product value. Then just lopp through a divide total product value by current value.
-* optimize solution is using prefix and suffix:
-[1,2,3,4]
-suppose current value is 2. so the prefix is 1 and suffix is 3*4=12
-so, ans in that position is prefix * suffix.
+* Brute Force[O(n^2)]
+* Using Division [O(n) time and O(1) space]: Get the total product value. Then just loop through a divide total product value by current value. Remember to handle case where zero is present.
+* Using Prefix & Suffix [O(n) time and O(1) space]:Compute the product of all elements to the left(prefix) and right(suffix) of each index. Store them in two array. Finally, combine the results of the two arrays to get the desired product array.
+* Optimized Prefix & Suffix [Space O(n)]: We can optimize the space complexity by avoiding the extra space used for prefix and suffix arrays.
+Use the result array itself. In 1st loop get the prefix in result array. In 2nd loop mutliply existing number(prefix) with suffix.
 
