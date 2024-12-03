@@ -11,6 +11,31 @@ problem: 1
 * Brute Force: Check all pairs of numbers to see if they sum to the target.
 * HashMap [O(n)]: Iterate and add in hashMap (key: num, value: index). And check (target - num) present in the hashMap. If found then return their indices.
 
+problem: 49
+* Brute Force: For each string, compare it with all others to check if they are anagrams. Group them manually.
+* Use sorted string as Key [O(n*klogk) time & O(n*k) space]: Anagrams, when sorted, produce the same string. Use this sorted string as a key in a hash map to group anagrams as value in the hash map.
+* Use frequency array as key [O(n*k)]: Use frequency array as key then proceed like previous. Find out why we use tuple as a key but not list.
+
+problem: 347
+* Hash map and sorting [O(nlogn) time and O(n) space]: Use hash map to count the freqeuncies. Sort the hash map by frequency. Return 1st k element.
+* Heap solution can be found on Heap Section.
+* Bucket Sort Solution can be found on Sorting section.
+
+problem: 271
+* Concatenate strings with a unique delimiter that doesn't appear in the original strings. During decoding, split the encoded string using the same delimiter. Problem is if delimeter alreadcy present in the string.
+* For each string, store its length followed by a special character (e.g., #) and the string itself. During decoding, parse the length prefix to extract each string. This approach handles any characters, including delimiters, and works efficiently.
+
+problem: 36
+* Use hash set for rows, cols and sub boxes(index will be (i//3,j//3) or ((i//3)*3 + (j//3))).Traverse the board, and for each digit, check and add to the corresponding row, column, and sub-box.If a duplicate is found in any row, column, or sub-box, the board is invalid.
+* Can be solved using one hash set. Include everything in hashset. Ex: seen = {'(num) in row (0)', '(num) in col (0)', '(num) in box(0)',.....}
+
+problem: 128
+* Using Sorting [O(nlogn) time - not prefered]: In sorted a list, traverse and check current = current -1 and count.
+* Using HashSet [O(n)]: Convert nums to set. Traverse and check for is it the starting point of a sequence(if element-1 not exist then it is starting point). If starting point found then apply while loop for element+1 and count. Max count is the answer.
+
+
+## Using Prefix Sum Algorithm ##
+
 problem: 238
 * can be solved by brut force using 0(n^2)
 * another way is, get the total product value. Then just lopp through a divide total product value by current value.
@@ -19,8 +44,3 @@ problem: 238
 suppose current value is 2. so the prefix is 1 and suffix is 3*4=12
 so, ans in that position is prefix * suffix.
 
-problem: 128
-* can be solved by sorting. In sorted a list, traverse and check current = current -1 and count.
-* convert to set. Traverse and check for is it the starting point of a sequence(if element-1 not exist then it is starting point). If starting point found then apply while loop for element+1 and count. max count is the answer.
-* another way is - convert to set. Traverse and check element+1 or element-1 is exist or not. if exist then apply while loop accordingly and get the max count.
-*** check for complexity in last two approach. It is O(n). bcz inner while execute each element just once for all outer iteration.
