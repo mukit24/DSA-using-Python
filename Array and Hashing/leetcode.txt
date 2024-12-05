@@ -40,10 +40,28 @@ problem: 303
 * Brute Force: For each query, iterate through the range [𝑖,𝑗] and sum the elements. Problem is, for multiple queries it is inefficient because each needs O(n).
 * Prefix Sum [O(1) time for each query]: Precompute the prefix sum for each position. For range[i,j], ans will be prefixSum[j] - prefixSum[i-1] (handle i overflow).
 
+problem: 304
+* Brute Force: 
+    for r1 to r2:
+        for c1 to c2:
+            then just calculate the sum.
+* Prefix Sum as 303: Calculate the prefix sums as rectangle. Means bottom right cell will be the sum of any rectangle. So, ans will be bottomRight - top - left + topLeft (because in top and left it is minimized twice so adjust it by adding topLeft). For (r1,c1) = (0,0) it will be out of index. So increase the size of the matrix by adding top and left offset(as 0 all).
+
 problem: 238
 * Brute Force[O(n^2)]
 * Using Division [O(n) time and O(1) space]: Get the total product value. Then just loop through a divide total product value by current value. Remember to handle case where zero is present.
 * Using Prefix & Suffix [O(n) time and O(1) space]:Compute the product of all elements to the left(prefix) and right(suffix) of each index. Store them in two array. Finally, combine the results of the two arrays to get the desired product array.
 * Optimized Prefix & Suffix [Space O(n)]: We can optimize the space complexity by avoiding the extra space used for prefix and suffix arrays.
 Use the result array itself. In 1st loop get the prefix in result array. In 2nd loop mutliply existing number(prefix) with suffix.
+
+problem: 724
+* Brute Force[O(n^2)]: For each index i, calculate the sum of elements to the left and the sum of elements to the right.
+* Prefix Sum[O(n)]: Calculate total sum. Then loop through the array and calculate right sum(=total-left-current) & left sum. 
+
+problem: 560
+* Brute Force[O(n^2)]: Iterate through all possible subarrays, calculate their sums, and check if they equal k.
+
+problem: 1732
+* Brute Force[O(n) time & O(1) space]: Compute the altitude at each point using a running sum of the gain array and track the maximum value. Efficient.
+* Prefix Sum [Space O(n)]: Use when you need all altitude.
 
