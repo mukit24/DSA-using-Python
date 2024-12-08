@@ -33,6 +33,12 @@ problem: 128
 * Using Sorting [O(nlogn) time - not prefered]: In sorted a list, traverse and check current = current -1 and count.
 * Using HashSet [O(n)]: Convert nums to set. Traverse and check for is it the starting point of a sequence(if element-1 not exist then it is starting point). If starting point found then apply while loop for element+1 and count. Max count is the answer.
 
+problem: 1431
+* If we want each to be the highest then we must know the highest value. First identify the max from the array. Then loop through array and check current + extra >= max.
+
+problem: 282
+* Loop through and putting all non zero in each position. Also increase last_non_zero pointer value. Then in 2nd loop start from last_non_zero and adding just 0. [O(n)]
+
 
 ## Using Prefix Sum Algorithm ##
 
@@ -60,6 +66,8 @@ problem: 724
 
 problem: 560
 * Brute Force[O(n^2)]: Iterate through all possible subarrays, calculate their sums, and check if they equal k.
+* We can do a sliding window if all values are positive (think).
+* Using Prefix and HashMap [O(n)]: Observation is Current_Sum - k = some prefix.
 
 problem: 1732
 * Brute Force[O(n) time & O(1) space]: Compute the altitude at each point using a running sum of the gain array and track the maximum value. Efficient.
