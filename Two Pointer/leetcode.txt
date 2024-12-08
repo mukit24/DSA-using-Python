@@ -1,0 +1,28 @@
+problem: 125
+* String Reverse[O(n) time and space]: Filter out non-alphanumeric characters and convert the string to lowercase. Then reverse it and compare.
+* Two Pointer [O(1) space]: Filter out the string. One pointer in 0 index and another in last index. Execute while(l < r) and compare both pointer. If mismatch found the return False otherwise sihift l += 1 and r -= 1.
+
+problem: 167
+* Using HashMap Like Two Sum problem(1) But need extra Space.
+* Two Pointer [O(n) time and O(1) space]: As array is sorted, we can use the two pointer approach. Place one(l) in start and another(r) in last. Loop through and check (l+r) == target. If l+r is greater than target it means we need to reduce the right point as it representing greater value. Vice versa for other case.
+
+problem: 15
+* Brute Force[O(n^3) time and O(m) space {m unique triplets}]: Check all possible triplets using three nested loops. Store triplets in a set to avoid duplicates.
+* Using Two Pointer [O(n^2) time and space depend on sorting algorithm either 1 or n]: total = num1 + num2 + num3. Loop through num1 and for num2 & num3 we can use similar like problem 167. But wait, we need to sort the array for two pointer. See, here duplicates present. So we need to cross the duplicate also. For num1 we can use the sorting, check if nums[i] == nums[i-1]. If this happen then skip this loop. Now its time to skip duplicate for num2. In two pointer segment, check nums[l] == nums[l-1]. Using a while skip duplicates for num2 or left pointer. We can do same for right pointer or num3. But it does not needed because we skip num1 and num2 for duplicates so num3 does not matter.
+
+problem: 977
+* Squaring and Sorting [O(nlogn) time]: Square every element then sort the array.
+* Two Pointer [O(n)]: As it is sorted either left pointer or right pointer square value can be greatest (- squaring will be positive). Loop and check biggher square value of pointer then add them on result array from back, also adjust the pointers.
+
+problem: 844
+* Using Stack [O(n)]: Using two stack for s and t. For each string, traverse and add character if char != '#'. If char == '#' then pop the last char. After doing this for two string, we get string without backslash operation. Now just compare compare if them equal or not.
+
+problem: 392
+* Two Pointer [O(n+m) time & O(1) space]: Use two pointer for two string. Increment s string pointer if s[i] == s[j] and increment t string pointer for each iteration. If i traverse all characters from s it means all characters are present in t. If not then return False.
+
+problem: 11
+* Brute Force [O(n^2) time]: Consider every possible area.
+* Two Pointer [O(n) time and O(1) space]: We must be greedy - Searching for max area should be started from whole area(index 0 - end). Use two pointer, one at start and other at end. Calculate Total Area = (diff between two pointer) * minimum height (minimum height[pointer]) in each iteration and identify the max so far. Each iteration increase/decrease the pointer which has low height (Beacause high height will increase the probability of max area).
+
+problem: 42
+* Brute Force [O(n^2)]: For each bar i, find the maximum height to its left and right. Water trapped = min(left_max, right_max) - height[i] if positive.
