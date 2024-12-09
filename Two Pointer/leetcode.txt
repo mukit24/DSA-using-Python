@@ -26,3 +26,10 @@ problem: 11
 
 problem: 42
 * Brute Force [O(n^2)]: For each bar i, find the maximum height to its left and right. Water trapped = min(left_max, right_max) - height[i] if positive.
+* DP [O(n) time & O(n) space]: We need maximum height to left and right at a certain position. So, we can precompute the leftMax and rightMax at each position. Then use this formula (min(left_max, right_max) - height[i]) to calculate the answer.
+* Two pointer Later.
+
+problem: 1679
+** This is just a modified Version of Two Sum problem.
+* Two Pointer [O(nlogn) time & O(1) space]: Sort The array. Use two pointer. If nums[l] + nums[r] == k then increment answer and shift both pointer inward. Others cases are same like two sum.
+* HashMap [O(n) time & space]: Just like two sum, check complement in hashMap. But this time when adding(in else condition because we remove the answer) to hashMap increase the frequency. When complement found in hashMap, check its freq is greater than zero then decrease its freq and increment the answer.
