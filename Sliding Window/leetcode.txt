@@ -1,3 +1,6 @@
+problem: 643
+* Sliding Window [O(n) time]: Similar to Maximum sum subarray of size ‘K’ problem except when return just canculate max_sum/k. We can use slightly different code, Calculate the 1st k elements sum and assign it to max_sum and cur_sum. Now loop through from k to end. Calculate cur_sum by adding current and removing the element(i-k). Check for max sum and at last return max_sum / k.
+
 problem: 2461
 * think of Maximum Sum Subarray of Size k problem. Only difference is that window must contain unique elements.
 * maintain a hash set for window. Insert element in window along with calculate the window sum if it is not present in the current window. 
