@@ -7,6 +7,9 @@ problem: 2461
 problem: 1456
 * Same as Maximum Sum Subarray of Size k. Just count the current_vowel and max_vowel instead.
 
+problem: 1343
+* Same as Maximum Sum Subarray of Size k. Just need the average that are greater than threshold. Wait, we can eliminate the division operation in each iteration. Just calculate the required sum at first. Required Sum = k * threshold.
+
 problem: 219
 * Sliding Window + HashSet [O(n) time & O(k) space]: Same elements should be in the window of size k. So, use a hashset for window. Loop and check if current is already exist on window set then return True. When window size exceed k then remove left element from set and increment the left pointer.
 * HashMap [O(n) time & space]: This approach need less operations though time complexity is same as previous. Loop and add each number with their position. When a number already exist in the hash map then check i - hashMap[nums[i]] <= k. If that the case then return true.
