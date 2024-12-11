@@ -33,3 +33,8 @@ problem: 1679
 ** This is just a modified Version of Two Sum problem.
 * Two Pointer [O(nlogn) time & O(1) space]: Sort The array. Use two pointer. If nums[l] + nums[r] == k then increment answer and shift both pointer inward. Others cases are same like two sum.
 * HashMap [O(n) time & space]: Just like two sum, check complement in hashMap. But this time when adding(in else condition because we remove the answer) to hashMap increase the frequency. When complement found in hashMap, check its freq is greater than zero then decrease its freq and increment the answer.
+
+problem: 151
+* Two Pointer [O(n) time & space]: Loop through from end and check for " ". When found then identify the word and insert it in a new string from start.
+* Python One liner: Splite the string in array (separator " "). Reverse the array and convert it in string.
+* O(1) space: Though python string is immutable. Concept is, convert the whole string in reverse. Then reverse every word on that string. Handle white spaces.
