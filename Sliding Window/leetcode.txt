@@ -23,6 +23,12 @@ problem: 209
 * Sliding Window [O(n) time & O(1) space]: Use sliding window like Maximum Sum Subarray of Size k problem. Except calculate the minimum length (R - L + 1) and Left Pointer handling is different. Window shrinking will happen until the base condition satisfies.
 * Prefix Sum and Sliding Window [O(n) space] (not recomended): Calculate the prefix sum as array. Loop through prefix sum array. Shrink the window when prefix[R] - prefix[L] >= target.
 
+problem: 3
+* Sliding Window [O(n) time]: Use hashset - if current number is already present in the hashset window then shrink the window until duplicate removes. Similar approach using Hashmap - insert element in hashmap with their position. When current element already present in the hashmap and in our window then adjust left pointer to map[s[R]] value + 1 and adjust hashMap value.
+
+problem: 424
+* Sliding Window and HashMap [O(n)]: Concept is - increasing window size (with maintaining hashMap for frequncy count) and check if current_window_size - max_freq_in_current_window > k. If that happen then shirnk the window untill that condition satisfies.
+
 problem: 567
 * remember anagram? permutation is just like anagrams. so we can bruthforce in sliding window. use sliding window in s2 with window size of len(s1). then check each character of s1 and window. Its O(m*n). We can do another way by sorting the window and s1 then check. So its O(mlogm * n). Now Let's move to O(n) solution.
 *  Character in the both string is limited to a-z. So we can use a fixed size(26) array or a hashmap to count each frequency. For array we need ascii value, for hashmap we can simply count freq in key-val pair. When both s1 freq and window freq is equal then we found the permutations.
