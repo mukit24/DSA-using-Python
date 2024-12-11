@@ -14,6 +14,15 @@ problem: 219
 * Sliding Window + HashSet [O(n) time & O(k) space]: Same elements should be in the window of size k. So, use a hashset for window. Loop and check if current is already exist on window set then return True. When window size exceed k then remove left element from set and increment the left pointer.
 * HashMap [O(n) time & space]: This approach need less operations though time complexity is same as previous. Loop and add each number with their position. When a number already exist in the hash map then check i - hashMap[nums[i]] <= k. If that the case then return true.
 
+problem: 121
+* Brute Force[O(n^2)]: Check every pair of buy and sell,then calculate profit.
+* One pass [O(n) time]: Identify the minimum buy price. When current value is greater then buy price then calculate profit and max profit.
+
+problem: 209
+* Brute Force [O(n^2)]: Traverse all subarrays and calculate their sums. Track the minimum length of subarrays whose sum is greater than or equal to the target.
+* Sliding Window [O(n) time & O(1) space]: Use sliding window like Maximum Sum Subarray of Size k problem. Except calculate the minimum length (R - L + 1) and Left Pointer handling is different. Window shrinking will happen until the base condition satisfies.
+* Prefix Sum and Sliding Window [O(n) space] (not recomended): Calculate the prefix sum as array. Loop through prefix sum array. Shrink the window when prefix[R] - prefix[L] >= target.
+
 problem: 567
 * remember anagram? permutation is just like anagrams. so we can bruthforce in sliding window. use sliding window in s2 with window size of len(s1). then check each character of s1 and window. Its O(m*n). We can do another way by sorting the window and s1 then check. So its O(mlogm * n). Now Let's move to O(n) solution.
 *  Character in the both string is limited to a-z. So we can use a fixed size(26) array or a hashmap to count each frequency. For array we need ascii value, for hashmap we can simply count freq in key-val pair. When both s1 freq and window freq is equal then we found the permutations.
