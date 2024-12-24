@@ -34,3 +34,11 @@ problem: 567
 *  Character in the both string is limited to a-z. So we can use a fixed size(26) array or a hashmap to count each frequency. For array we need ascii value, for hashmap we can simply count freq in key-val pair. When both s1 freq and window freq is equal then we found the permutations.
 * A variation can be applied bby using only one fixed array or hashmap. We need to adjust the s1 freq in every window. when the s1 freq is all zero then its true.
 * One important note, using fixed size array is more performance friendly then hashmap. while both are O(1) in lookup(for array its index lookup) but the hashmap constant factors are overhead because its dynammic nature, hashing, mermory allocation etc. For example arr[1] is efficent more than hashmaplook because hashmap applies hash function in lookups. 
+
+problem: 76
+* Sliding Window + HashMap (O(n * m) time): Use two hashMap. One for t and other for window (add only when char present in tMap bcz other character doesnot need to compare). In each window, compare two hashMap (check every element and see if tMap[k] >= window[k]). If true then check for minimum length and shrinking window based on true condition.
+* Optimization of previous (O(n), exactly O(n+m) time): We have some repetitive checking when comparing two hashMaps. We can replace this by constant time comparision. Use two variable 'need' (which is equal to the len of t) and 'have' (for window). Increase have variable when window[k] == tMap[k]. When have == need then check for ans and shrinking window. When shrinking also decrement have variable if window[k] < tMap[k].
+
+problem: 239
+* Using Heap (O(nlogn) time): Maintain a max heap of size k (with index). For every window push and pop (logk time) from max heap. Check for maximum in heap in constant time.
+* Using Deque (O(n) time): Use deque for storing useful index. When insert check top element value is less than current, it means previous values is not useful (we just need the current value because it is maximum) so pop them. When dq[0] is out of window then popleft. When window size reaches add dq[0] to the result array.
