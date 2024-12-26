@@ -1,7 +1,24 @@
+### Stack
+
 Problem: 20
 * make dictionary for corresponding parenthesis. loop through input and check if closing paren present in the key. If present then check is its opening paren present in the stack top(stack[-1] == paren[item]) ,if true then pop else return False. Append item if opening paren is found.
 * At last check if stack is empty or not.
 * Additional improvement: 1st check if input contains odd number of elements. For odd number it is always False.
+
+problem: 155
+* Using Two Stack: One stack for normal stack operation, Other one for min value. If current value is less than or equal to the min_stack top then add it in the min_stack. When poping check if the poped value is equal to the min_stack top, then pop from min_stack also.
+* Using One Stack: Store value in pair in stack. Like (value, min_value).
+
+problem: 2390
+* Using Stack (O(n)): Just simulate the problem. Adding values on stack. When star found, pop value from stack. Then return the stack.
+* In Place (const space): Identify the index where we need to put characters without *. Loop through and increase the index when valid char found and place that character in that index. When * found, decrement the index character (bcz we need to remove previous char of *).
+
+problem: 735
+* Using Stack: Add in stack if asteriod is positive/ top of stack is negative / stack is empty. If asteriods is negative then handle the collision (if negative survives then handle it untill it destroyed).
+
+problem: 394
+* Using Stack: 1st idea come to mind is, this can be divided into subproblems. So recursive solution wil be worked. Wait, we can solve that by stack also because recursion uses stack. Append to the stack until closing bracket found. When closing braket found, start poping from stack untill opening found. So we got the string. Now start poping for finding the the number(k). When append found append that in stack (substr * k).
+* Popping and pushing operation can be reduced by extra condition checking and extra spcae. Implement this.
 
 Problem: 853
 * what is the time of each car to reach target? for position 10, speed 2 and target 12 , it is 1 hr. If another car time is 1 hr or less to reach target and it is behind(position is less) that car, its mean that two car are fleet(in the same position or can be overtaken each other).
