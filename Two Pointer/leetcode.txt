@@ -38,3 +38,10 @@ problem: 151
 * Two Pointer [O(n) time & space]: Loop through from end and check for " ". When found then identify the word and insert it in a new string from start.
 * Python One liner: Splite the string in array (separator " "). Reverse the array and convert it in string.
 * O(1) space: Though python string is immutable. Concept is, convert the whole string in reverse. Then reverse every word on that string. Handle white spaces.
+
+problem: 443
+* Two Pointer [O(n) time]: Use one pointer(read) to read the string and other pointer (write) to identify where to write. Loop through and check if consecutive characters are found. If found then increase read and count. Then write in the write pointer position then increase it. After that check if count is greater then 1, if true then convert count in string and write in input string.
+
+problem: 345
+* Two Pointer: Remember reversing using two pointer? Just apply same but check for vowels. Using a set for vowels with small and capital latters for avoiding lower() function.
+* Stack: Reverse can be done by stack.
