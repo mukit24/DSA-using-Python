@@ -20,18 +20,29 @@ problem: 394
 * Using Stack: 1st idea come to mind is, this can be divided into subproblems. So recursive solution wil be worked. Wait, we can solve that by stack also because recursion uses stack. Append to the stack until closing bracket found. When closing braket found, start poping from stack untill opening found. So we got the string. Now start poping for finding the the number(k). When append found append that in stack (substr * k).
 * Popping and pushing operation can be reduced by extra condition checking and extra spcae. Implement this.
 
+problem: 150
+* Using Stack: Simulate the process. Appending on stack (just operand). When a operator found just pop last two operand. Do the neccessary operation then append the result on stack.
+
+-> Monotonic Stack [Stack maintain increasing (for finding next lowest) or decresing order (for finding next greatest)]
+
+Problem: 739
+* Brute Force [O(n^2) time]: For each day, iterate through the subsequent days to find a warmer temperature.
+* Monotonic Stack [O(n) time & spcae]: When we find solution? If we get an warmer day then previous day. So we need all previous days at a certain day. Traverse and append day in stack (but append the index bcz days can be duplicate). When we find a warmer day than the top of stack it means thats a answer. So pop it and calculate the answer using prev_index - current_index. Wait need to continue this process for all prev days because warmer day may hold true for them also (because stack is in decreasing order).
+* Think of O(1) space solution.
+
+problem: 901
+* Brute Force [O(n^2)]: For each incoming price, traverse backward to count the span by comparing the current price with all previous prices.
+* Monotonic Stack [O(n)]: If we know the previous price span then we can optimize the brute force. Use stack to store (price, span) pair. By default span is 1. If top of stack is less than or equal to current price then calculate the span based on top of the stack and pop ( we dont need this anymore bcz we calculate its span in current price). Excute this until current value is less than top of the stack.
+
+problem: 496
+* Monotonic Stack: Use decreasing monotonic stack. Use hashMap for checking valid value and identifying index.
+
 Problem: 853
 * what is the time of each car to reach target? for position 10, speed 2 and target 12 , it is 1 hr. If another car time is 1 hr or less to reach target and it is behind(position is less) that car, its mean that two car are fleet(in the same position or can be overtaken each other).
 * So we need to sort on the basis of position. Let's sort in decresing order.
 * So, test_case1 will be [(10, 2), (8, 4), (5,1)...(position, speed)] and time can be calculated as [1,1,7,3,...]
 * let loop through it and check present time is >= next time(1st point logic). If not then ans += 1.
 * Bonus: if ask the position of one car in each flet then a stack can be handful  in the place of ans counter. Though present problem can be solve by stack by appending instead of ans += 1 and then count the len of stack.
-
-Problem: 739
-* traverse the array. If present element is greater than previouis element then ans is 1 (present index - previous index). But what will happen for else? we can use stack data structure for this.
-* lets initialize ans array with 0 to handle the case when a day can be 0.
-* now traverse and append index to the stack. Before appending check if the top of stack is less than the current value. If true then pop it and calculates its result and place it in the ans array. Do this untill stack is empty. Because stack can contain one or more days that are less than the current value.  
-
 
 
 ### heap
