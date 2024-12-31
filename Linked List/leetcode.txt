@@ -1,3 +1,6 @@
+problem: 206
+* Iterative [O(n) time]: Just iterate and reverse the pointer. At a certain node we need the previous node for reversing. So use a prev pointer(initially None) along with current. 
+
 Problem: 21
 * each iteration check one from both list. if list1.val < list2.val then ansList.next = list1 and list1 = list1.next . vice verse.
 * for deifferent size one will not be traversed full. Just join that remaining portion with ansList.
