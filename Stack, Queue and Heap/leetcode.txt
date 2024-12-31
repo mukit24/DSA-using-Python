@@ -44,6 +44,11 @@ Problem: 853
 * let loop through it and check present time is >= next time(1st point logic). If not then ans += 1.
 * Bonus: if ask the position of one car in each flet then a stack can be handful  in the place of ans counter. Though present problem can be solve by stack by appending instead of ans += 1 and then count the len of stack.
 
+problem: 84
+* Brute Force: For each bar in the histogram, consider it as the smallest height in a rectangle and expand it to the left and right to calculate the area.
+* Monotonic Stack: See code.
+* DP - think of it.
+
 
 ### heap
 problem: 621
