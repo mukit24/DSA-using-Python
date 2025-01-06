@@ -6,6 +6,13 @@ Problem: 21
 * for deifferent size one will not be traversed full. Just join that remaining portion with ansList.
 * complexity O(size(list1)+size(list2)) or O(N) here N is total number of nodes across both list.
 
+problem: 1472
+* Using List: Use a list to simulate the history. When visit truncate the list.
+* Using Doubly Linked List.
+
+problem: 1700
+* Using Queue: Simulate the process. Check rotation for identifying unable eater.
+
 Problem: 23
 * now we merge k sorted list. Think of two sorted list problem. We can do a bruth force. Loop through all lists and merge it with the currently merged list using two sorted list problem solution. At the end we find the answer. time complexity will be O(kN), here k is the number of list and N is the total number of nodes across all lists.
 
