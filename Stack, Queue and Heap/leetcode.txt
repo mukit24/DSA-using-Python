@@ -49,6 +49,17 @@ problem: 84
 * Monotonic Stack: See code.
 * DP - think of it.
 
+### Queue
+
+problem: 1472
+* Using List: Use a list to simulate the history. When visit truncate the list.
+* Using Doubly Linked List.
+
+problem: 1700
+* Using Queue: Simulate the process. Check rotation for identifying unable eater.
+
+problem: 933
+* Using Queue: Enque every ping. Pop from queue when top of queue is less than t-3000. Then length of the queue will give the answer.
 
 ### heap
 problem: 621
