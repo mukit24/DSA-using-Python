@@ -8,7 +8,11 @@ Problem: 21
 
 problem: 143
 * Using List: Append every node in a list. Then use two pointer (l, r) - one at start and one at last. Using two pointer, alternatively link r and l.
-* Linked List: 
+* Linked List: We want value from last as well. But there is no way to backward traverse in single linked list. So we reverse the second half of the list. Now using two pointer (one at head, other at last node of linked list or head of 2nd half), we can alternatively link both pointer.
+
+problem: 19
+* Two Pass: Iterate through linked list and count node. Then identify the position (position = Length - n). Again loop through to get the position and delete node.
+* One Pass: Use two pointer (first and second) both starting at a dummy node. Maintain a gap of n+1 steps between two pointer. Then increment both pointer. When first pointer reaches end then the second pointer will be at appropiate postion. Then delete node.
 
 Problem: 23
 * now we merge k sorted list. Think of two sorted list problem. We can do a bruth force. Loop through all lists and merge it with the currently merged list using two sorted list problem solution. At the end we find the answer. time complexity will be O(kN), here k is the number of list and N is the total number of nodes across all lists.
