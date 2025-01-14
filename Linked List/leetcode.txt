@@ -21,4 +21,22 @@ Problem: 23
 
 * There is a heap solution. Check heap section.
 
--->> Slow and Fast Pointer
+problem: 328
+* Using Two Pointer: First check head or head.next is null to avoid the edge cases. Then separate the list into two sub list. Use two pointer: odd (in head) and even (in head.next). Save even_head to link the sub lists. Now execute while loop untill even and even.next is true. Each iteration link odd.next = even.next then shift odd then even.next = odd.next and shift even. After loop, link odd.next = even_head.
+* Without Two Pointer: Create dummy list for odd and even. Then iterate through linked list and link current node with odd or even list (depending is it odd or even - use flag to identify current is even or odd). After looping, join both list.
+
+-->> Slow and Fast Pointer(Floyd's Hare and Tortoise Algorithm)
+
+problem: 876
+* Both start at head. Increase fast pointer 2 steps in each iteration and slow pointer 1 step. When fast pointer reaches end (fast and fast.next true) then Slow will be pointing at middle.
+* Note: If even list then middle will be two nodes. According our algorithm we will end up at the 2nd middle node for even list. However, we can get the first middle node if we start fast pointer at head.next.
+
+problem: 2095
+* Use F&S technique to identify the middle. Use prev to identify the position before middle. Then delete the desirable node.
+
+problem: 141
+* Same as 876. Just check when slow == fast.
+
+problem: 142
+* Use F&S pointer technique to identify the Cycle. Now, place another slow pointer to head. Increase both Slow pointer one step. At a point theu will meet. That point will be the start of the cycle. There is a mathematical prove. Think that.
+* We can solve this using extra memory without F&S technique. Just use a hashmap for visited nodes.
