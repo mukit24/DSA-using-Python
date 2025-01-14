@@ -1,6 +1,10 @@
 # if duplicate then return 1st
 # if not found then return -1
 
+# Binary Search Time Complexity O(logn)
+# Each iteration whole array is divided into half like n/2, n/4... untill its 1.
+# So, n/2^k = 1 then 2^k = n, So, k = logn.
+
 #assume these cases as assending order
 test_case_1 = [-3,-2,-1]
 test_case_2 = [2,2,4,5,7,7,7,8,10]
@@ -19,7 +23,7 @@ def binary_search_basic(case, target):
     hi = len(case)-1
     while lo <= hi:
         mid = (lo + hi) // 2
-        print(lo,hi,mid)
+        # print(lo,hi,mid)
         if case[mid] == target:
             return mid
         elif case[mid] > target:
@@ -28,7 +32,7 @@ def binary_search_basic(case, target):
             lo = mid + 1
     return -1
 
-print('basic_binary_search',binary_search_basic(test_case_1, -2))
+print('basic_binary_search',binary_search_basic(test_case_2, 2))
 
 # not giving correct result for case 2 in that scenerio
 # so we need a helper function that defines the condition

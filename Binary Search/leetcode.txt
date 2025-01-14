@@ -13,8 +13,11 @@ problem: 33
 
 
 problem: 74
-seems easy by looping through each row and then apply binary search in it. There is optimize way. We don't need to search every row. If target is exist in an row then that row's: 1st element <= target and last element >= target.
-* O(max(piles) * len(piles))
+* O(log(m*n)) Solution: Seems easy by looping through each row and then apply binary search in it Or Think 2D in 1D(lo = 0 and hi = rows * cols - 1. Now apply normal binary search. But how do we get the mid_value by index? mid_value = matrix[mid//cols][mid%cols]).
+* O(log(m+n)): There is optimize way. We don't need to search every row. If target is exist in an row then that row's: 1st element <= target <= last element. So 1st apply binary search to locate the row. Then Apply binary search again on that row to get the target.
+
+problem: 374
+* Same as binary search to find target but a generalized way. Guess function handle the condition checking like mid == target, mid < target etc. Then it return 3 values. Upon these values we use them to half the range.
 
 problem: 875
 possible k ranges from 1 to max(piles). We can bruteforce 1 to max(piles). if total time using that k is less than h then it is the answer (#condition).
