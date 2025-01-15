@@ -19,15 +19,23 @@ problem: 74
 problem: 374
 * Same as binary search to find target but a generalized way. Guess function handle the condition checking like mid == target, mid < target etc. Then it return 3 values. Upon these values we use them to half the range.
 
-problem: 875
-possible k ranges from 1 to max(piles). We can bruteforce 1 to max(piles). if total time using that k is less than h then it is the answer (#condition).
-For optimization, we can implement binary search in possible k values. If mid satisfy the #condition then minimum k is present in the left half. Else right half.
-* O(log(max(piles)) * len(piles))
+problem: 278
+* We switching hi/lo values, always use hi = mid (when mid is true. By doing this we are always at the first occurance of true). (think).
+* We can use that technique when answer is always present in the array.
 
-Alt solution but not optimize:
-avg speed = sum(piles)/h
-k must be equal to avg speed or greater.
-So, we can change the lo to average speed.
-* calculating sum(piles) takes O(n times) so it is not optimized.
+problem: 162
+* Brute Force: Check every number that it is greater than its neighbor. (handle first and last element also).
+* Binary Search: Hard to get the intuition. But look closely. If right value of mid is greater what it means? Either it will be in increasing order or sometimes it will decrease (as two neighbor can't have same value). So either case we have an answer. Same goes for left side. 
+
+problem: 875
+* Brute Force [O(n * max(piles))]: Possible k ranges from 1 to max(piles). We can bruteforce 1 to max(piles). If total time using that k is less than h then it is the answer.
+* Binary Search [O(n * log(max(piles)))]: For optimization, we can implement binary search in possible k values. If mid satisfy the condition then minimum k is present in the left half. Else right half.
+* Alt solution but not optimize:
+    avg speed = sum(piles)/h
+    k must be equal to avg speed or greater.
+    So, we can change the lo to average speed.
+    calculating sum(piles) takes O(n times) so it is not optimized.
+
+
 
 
