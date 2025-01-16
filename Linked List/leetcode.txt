@@ -25,6 +25,23 @@ problem: 328
 * Using Two Pointer: First check head or head.next is null to avoid the edge cases. Then separate the list into two sub list. Use two pointer: odd (in head) and even (in head.next). Save even_head to link the sub lists. Now execute while loop untill even and even.next is true. Each iteration link odd.next = even.next then shift odd then even.next = odd.next and shift even. After loop, link odd.next = even_head.
 * Without Two Pointer: Create dummy list for odd and even. Then iterate through linked list and link current node with odd or even list (depending is it odd or even - use flag to identify current is even or odd). After looping, join both list.
 
+problem: 138
+* Using HashMap: We can easily make copy of node using val. But what about next and random? That's the main challenge. For example, we copy a node from existing node. How can we place random? It may be not created yet. So at first, we need to create all nodes and map them to the existing node using hashmap for retriving their next and random. Then in second loop, we connect the next and random pointer of the new nodes by getting next and random from map.
+* Interleave Node with O(1) Space: A->B->C to A->A'->B->B'->C->C'. Can we place new node after the existing node like this? Then we will set the new nodes random pointers. At last, we will separate the new nodes from the merged list.
+
+problem: 2
+* Think of addition operation. We start from the right then go to left. In that problem numbers already in reverse order, that make our life easier. So, start from head of both list. Add them and save the result in new node with carry handling (calculate total like this: n1 + n2 + carry). Go on.
+
+problem: 445
+* Same as problem '2' except numbers are not in reverse order. So, we can use stacks to simulate that reverse order and use same operation on stacks.
+
+problem: 146
+* HashMap + Double Linked List: We we save the key-value in hashMap then we can do get operation in O(1) time. What about put? It still O(1) if capacity is in limit. But problem is when capacity crosses we need to adjust our cache (least recent element will be removed). How to handle this? We can handle that using a double linked list(just store key). When to do a get or put, that node is become recent node. So we add them in the tail of the linked list. So head will be least recent. Hence, when capacity exceeds we will remove node from the head. As double linked list, insert and remove from both end will be done in O(1) time. Insert and remove can be called in both get and put. So, write two separate function for insert and remove.
+
+problem: 25
+* We know how to reverse linked list. But this this time we need to do it in group wise. In while loop, first check for group. If availabe group is not possible then return adjusted head. Else, identify group. Also, save that group start and end point. Reverse that group then adjust the group connection using start and end point.
+* Using Stack: Same mechanism like previous. But this time, We can store the groups node in stack. Popping from stack to get the reverse order.
+
 -->> Slow and Fast Pointer(Floyd's Hare and Tortoise Algorithm)
 
 problem: 876
