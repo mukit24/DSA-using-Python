@@ -2,15 +2,11 @@ Problem: 2529
 use two loop. First count 0 as positive then in second loop count 0 as negative.
 
 problem: 153
-main logic in rotating_list.py file. second submission applies another improved logic.
-if list[mid] > list[hi] then solution lies in right half except mid. so lo = mid + 1
-else solution lies in left half with mid. so hi = mid
+* Main logic in rotating_list.py file. Second submission applies another improved logic. If list[mid] > list[hi] then solution lies in right half except mid. so lo = mid + 1. Else solution lies in left half with mid. so hi = mid.
 
 problem: 33
-* if mid == target then return its index. 
-* Then check if mid element is greater than or equal to low element. If true then means left side is properly sorted.(for ex - [3,4,5,6,1]). Now if target is greater than the mid it means target must be present in the right side. For less, it can be on both sides. If it is less than low it means the target is in right side otherwise left.
-* for else, [5,6,1,2,3] use this and think the opposite.
-
+* Brute Force: Check every element.
+* Binary Search: Remember rotated sorted array? If mid == target then return its index. Now think of which half will we go? 1st identify which half is properly sorted? If lo <= mid, it means left half is sorted. Now check if lo <= target < mid, then we should go to the left half. Otherwise right half. Think same when right side is properly sorted.
 
 problem: 74
 * O(log(m*n)) Solution: Seems easy by looping through each row and then apply binary search in it Or Think 2D in 1D(lo = 0 and hi = rows * cols - 1. Now apply normal binary search. But how do we get the mid_value by index? mid_value = matrix[mid//cols][mid%cols]).
@@ -35,6 +31,14 @@ problem: 875
     k must be equal to avg speed or greater.
     So, we can change the lo to average speed.
     calculating sum(piles) takes O(n times) so it is not optimized.
+
+problem: 981
+* How to store key-value pairs? First thing will come upto my mind is hashmap. But here multiples values can be in same key. So use an array for value in hashMap (key: [[val, time],...]). Now think of get. We can apply a linear search on the appropiate values array to get the desirable ans. But we can optimize this search by using binary search as timestamp is in increasing order.
+
+problem: 4
+* Brute Force [O((n+m)* log(m+n))]: Just add two list and sort them. Then find median.
+* Two Pointer [O(m+n)]: Remember merge two sorted array problem? We can merge two sorted list using two pointer. Then find the median in merged array.
+* Binary Search: Implement Later.
 
 
 
