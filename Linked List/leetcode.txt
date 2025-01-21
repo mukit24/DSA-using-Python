@@ -19,7 +19,7 @@ Problem: 23
 
 * we can do better by minimizing the k iteration. How? think of merge sort. We can merge by pair then merge these pair again pair wise using that two sorted list problem. at last iteration we reached our answer. Suppose we have 8 lists. 1st iteration we got 4 list. 2nd iteration we got 2 lists and in 3rd we got one. So total 3 iteration. So k is minimized to logk. So the overall time complexity will be O(Nlogk).
 
-* There is a heap solution. Check heap section.
+* Using Heap [O(nlogk)]: We can store minimum values in min heap then using its property to generate new sorted array. First insert all lists head into the heap because that's where we find the smallest element. Don't forget to insert index also. Then apply while loop until heap is empty and pop from heap the current smallest. Add it to the linked list and push to heap from the same list.
 
 problem: 328
 * Using Two Pointer: First check head or head.next is null to avoid the edge cases. Then separate the list into two sub list. Use two pointer: odd (in head) and even (in head.next). Save even_head to link the sub lists. Now execute while loop untill even and even.next is true. Each iteration link odd.next = even.next then shift odd then even.next = odd.next and shift even. After loop, link odd.next = even_head.
